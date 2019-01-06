@@ -1,6 +1,12 @@
 # Online Library
 
 
+##TO DO
+- se creeaza baza de data library
+- daca e cazul se schimba detale in application.properties
+- in application.properties se seteaza hibernate.hbm2ddl.auto=create pentru prima rulare, ca se se creeze tabelele
+
+
 ## Ce face
 
 - Scopul aplicatiei este de a gestiona cartile dintr-o biblioteca
@@ -26,5 +32,8 @@ cartilor sau o pagina personala unde poate vedea un tabel cu cartile ce le-a imp
 - hibernate pentru persistenta si legatura cu baza de date 
 - mysql pentru baza de date
 - Aplicatia va rula pe serverul de aplicatii Tomcat.
+
+
+
 
 
