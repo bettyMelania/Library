@@ -7,14 +7,31 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
 
-    <title>HELLO</title>
+    <title>Library</title>
 
     <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
+    <h2> Books </h2>
 
-    <h2 th:text="'Hello ' + ${name} + '!'"></h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th> Title </th>
+            <th> Author </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${books.empty}">
+            <td colspan="2"> No Books Available </td>
+        </tr>
+        <tr th:each="book : ${books}">
+            <td><span th:text="${book.title}"> Title </span></td>
+            <td><span th:text="${book.author}"> Author </span></td>
+        </tr>
+        </tbody>
+    </table>
 
 </div>
 <!-- /container -->
