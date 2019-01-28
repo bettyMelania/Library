@@ -13,7 +13,7 @@ public class HomeController {
     @Autowired
     BookService bookService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String home(Model model) {
         //Book b=new Book();b.setTitle("a");b.setAuthor("b");b.setNrBooks(10);
         //bookService.saveBook(b);
