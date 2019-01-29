@@ -5,7 +5,8 @@
 - se creeaza baza de data library
 - daca e cazul se schimba detale in application.properties
 - in application.properties se seteaza hibernate.hbm2ddl.auto=create pentru prima rulare, ca se se creeze tabelele
-
+- mareste max_allowed_packet in mysql: my.ini
+- mareste innodb_log_file_size in mysql:  my:ini
 
 ## Ce face
 
