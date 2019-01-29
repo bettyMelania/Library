@@ -5,7 +5,7 @@ import com.library.app.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.springframework.util.MultiValueMap;
 import java.util.List;
 
 @Service("employeeService")
@@ -14,7 +14,13 @@ public class BookService {
     @Autowired
     private BookRepository bookRepo;
 
-    public void saveBook(Book book) {
+    public void saveBook(MultiValueMap<String, Object> formData,byte[] file) {
+        Book book = new Book();
+        book.setTitle((String)formData.get("title").get(0));
+        book.setAuthor((String)formData.get("author").get(0));
+        book.setNrBooks(Integer.parseInt((String)formData.get("nrBooks").get(0)));
+        if(file!=null)
+            book.setPdffile(file);
         bookRepo.saveBook(book);
     }
 
@@ -23,4 +29,7 @@ public class BookService {
     }
 
 
+    public Book getBook(Integer id) {
+        return bookRepo.find(id);
+    }
 }

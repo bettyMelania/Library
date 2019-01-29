@@ -20,4 +20,5 @@ public class AbstractRepository {
     public void delete(Object entity) {
         getSession().delete(entity);
     }
+
 }

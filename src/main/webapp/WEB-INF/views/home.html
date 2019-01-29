@@ -20,6 +20,7 @@
         <tr>
             <th> Title </th>
             <th> Author </th>
+            <th> File </th>
         </tr>
         </thead>
         <tbody>
@@ -27,8 +28,13 @@
             <td colspan="2"> No Books Available </td>
         </tr>
         <tr th:each="book : ${books}">
-            <td><span th:text="${book.title}"> Title </span></td>
-            <td><span th:text="${book.author}"> Author </span></td>
+            <td><span th:text="${book.title}">  </span></td>
+            <td><span th:text="${book.author}">  </span></td>
+            <td>
+                <div th:if="${book.pdffile}">
+                    <a th:href="@{'/downloadFile/'+${book.id}}">Download</a>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>

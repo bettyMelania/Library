@@ -13,10 +13,13 @@ public class BookRepository extends AbstractRepository {
         persist(book);
     }
 
-    @SuppressWarnings("unchecked")
     public List<Book> findAllBooks() {
         Criteria criteria = getSession().createCriteria(Book.class);
         return (List<Book>) criteria.list();
+    }
+
+    public Book find(Integer id) {
+        return (Book) getSession().get(Book.class, id);
     }
 
 }
