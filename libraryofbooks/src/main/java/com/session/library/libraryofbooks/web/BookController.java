@@ -62,7 +62,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/admin/saveFile", method = RequestMethod.POST, consumes = { "multipart/form-data" })
-    public String saveFile(Model model, @RequestParam("pdffile") MultipartFile f)throws IOException{
+    public String saveFile(Model model, @RequestParam("pdffile") MultipartFile f) throws IOException{
         if(f!=null)
             this.file=f.getBytes();
         System.out.println("pdffile: "+f);
@@ -70,7 +70,9 @@ public class BookController {
     }
 
     @RequestMapping(value = "/admin/saveBook", method = RequestMethod.POST, consumes = { "multipart/form-data" })
-    public String save(Model model, @RequestParam MultiValueMap<String, Object> formData){//} @RequestPart("title") String title, @RequestPart("author") String author, @RequestPart("nrBooks") Integer nrBooks, @RequestPart("file") MultipartFile file){
+    public String save(Model model, @RequestParam("pdffile") MultipartFile f, @RequestParam MultiValueMap<String, Object> formData) throws IOException {
+        if(f!=null)
+            this.file=f.getBytes();
         bookService.saveBook(formData,this.file);
         file=null;
         return savePage(model);
