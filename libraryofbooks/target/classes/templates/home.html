@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Library</title>
+    <base href="/">
+    <link href="/css/mainPage.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+    <a class="basic-button" href="/logout"> Logout</a>
+    <p th:if="${admin}">
+        <a class="basic-button user-button" th:href="@{'home/userBooks/'+${userId}}"> See your books</a><br/>
+        <a class="basic-button admin-button" href="/admin/adminPage"> Admin page</a>
+        <a class="basic-button save-button" href="/admin/saveBook"> Save New Book</a><br/>
+    </p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th> Title </th>
+            <th> Author </th>
+            <th> No.Available </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${books.empty}">
+            <td colspan="2"> No Books Available </td>
+        </tr>
+        <tr th:each="book : ${books}">
+            <td><span th:text="${book.title}">  </span></td>
+            <td><span th:text="${book.author}">  </span></td>
+            <td><span th:text="${book.numbooks}">  </span></td>
+            <td>
+                <a style="color:red;" th:href="@{'home/bookDetail/'+${book.id}}">Details</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<!-- /container -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</body>
+</html>

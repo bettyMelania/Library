@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Save new book</title>
+    <base href="/">
+    <link href="/css/saveCss.css" rel="stylesheet" />
+</head>
+<body>
+
+<a class="basic-button go-home-button" href="/home">Go back to home</a><br/>
+
+<div class="main-save-div">
+    <form id="formFile" th:action="@{/admin/saveFile}" method="post" enctype="multipart/form-data" >
+        <label>Select a pdf:</label> <input class="save-input" type="file" id="pdffile" name="pdffile" accept="application/pdf"/><br/>
+    </form>
+    <br/>
+    <form id="form" th:action="@{/admin/saveBook}" method="post" enctype="multipart/form-data" >
+        <label>Author:</label> <input class="save-input" type="text" id="author" name="author"  required="required"/><br/>
+        <label>Title:</label> <input class="save-input" type="text" id="title" name="title" required="required"/><br/>
+        <label>Number of books:</label> <input class="save-input" type="number" id="numbooks" name="numbooks" min="1" max="30" value="5" required="required"/><br/>
+        <button class="basic-button" type="submit" value="Submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

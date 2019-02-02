@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Library</title>
+    <base href="/">
+    <link href="/css/mainPage.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+    <a class="basic-button" href="/logout"> Logout</a>
+    <a class="basic-button save-button" href="/home"> Go back to home</a><br/>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th> Title </th>
+            <th> Author </th>
+            <th> No.Available </th>
+            <th> Borrowed by</th>
+            <th> Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${booksUser.empty}">
+            <td colspan="2"> No borrows were made </td>
+        </tr>
+        <tr th:each="bu : ${booksUser}">
+            <td><span th:text="${bu.book.title}">  </span></td>
+            <td><span th:text="${bu.book.author}">  </span></td>
+            <td><span th:text="${bu.book.numbooks}">  </span></td>
+            <td><span th:text="${bu.user.username}">  </span></td>
+            <td>
+                <a style="color:red;" th:href="@{'home/userBooks/removeBorrowing/'+${bu.user.id} +'/'+${bu.book.id}}">Remove borrowing</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="message-class">
+        <div th:if="${message != null}">
+            <div style="color:red;"  th:text="${message}"></div>
+        </div>
+    </div>
+
+</div>
+<!-- /container -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</body>
+</html>
