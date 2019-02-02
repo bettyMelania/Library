@@ -11,14 +11,18 @@
 <a class="basic-button go-home-button" href="/home">Go back to home</a><br/>
 
 <div class="main-save-div">
-    <form id="formFile" th:action="@{/admin/saveFile}" method="post" enctype="multipart/form-data" >
-        <label>Select a pdf:</label> <input class="save-input" type="file" id="pdffile" name="pdffile" accept="application/pdf"/><br/>
-    </form>
-    <br/>
     <form id="form" th:action="@{/admin/saveBook}" method="post" enctype="multipart/form-data" >
+        <label>Select a pdf:</label> <input class="save-input" type="file" id="pdffile" name="pdffile" accept="application/pdf"/><br/>
+
+        <br/>
+
         <label>Author:</label> <input class="save-input" type="text" id="author" name="author"  required="required"/><br/>
         <label>Title:</label> <input class="save-input" type="text" id="title" name="title" required="required"/><br/>
         <label>Number of books:</label> <input class="save-input" type="number" id="numbooks" name="numbooks" min="1" max="30" value="5" required="required"/><br/>
+        <label>Year:</label> <input class="save-input" type="number" id="year" name="year" required="required"/><br/>
+        <label>Country:</label> <input class="save-input" type="text" id="country" name="country" required="required"/><br/>
+        <label>Pages:</label> <input class="save-input" type="number" id="nopages" name="nopages" required="required"/><br/>
+        <label>Summary:</label> <input class="save-input" type="text" id="summary" name="summary" required="required"/><br/>
         <button class="basic-button" type="submit" value="Submit">Submit</button>
     </form>
 </div>
