@@ -28,6 +28,13 @@ public class BookService {
         Book book = new Book();
         book.setTitle((String)formData.get("title").get(0));
         book.setAuthor((String)formData.get("author").get(0));
+
+        book.setNopages(Integer.parseInt((String)formData.get("nopages").get(0)));
+        book.setYear(Integer.parseInt((String)formData.get("year").get(0)));
+
+        book.setCountry((String)formData.get("country").get(0));
+        book.setSummary((String)formData.get("summary").get(0));
+
         book.setNumbooks(Integer.parseInt((String)formData.get("numbooks").get(0)));
         if(file!=null)
             book.setPdffile(file);
@@ -73,3 +80,4 @@ public class BookService {
         return true;
     }
 }
+
